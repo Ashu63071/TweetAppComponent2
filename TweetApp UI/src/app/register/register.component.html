@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="content">
+      <div class="left-content">
+          <div class="f-logo">
+              <img src="../../assets/tweetapplogo.png" />
+          </div>
+          <h2 class="f-quote1">We are Connecting you with Digital life.</h2>
+          <h2 class="f-quote2">Follow your interests, Join the new world</h2>
+      </div>
+      <div class="right-content">
+          <div class="card">
+            <div class="card_header">
+              <div >
+                <h5 class="form_quote1">Welcome & Join the world</h5>
+              </div>
+              <div class="img_bird" style="float: right;">
+                <img src="../../assets/bird logo.png" style="height: 35px;" />
+              </div>
+            </div>
+            
+            
+            <h3 class="form_quote2">Get connected now</h3>
+
+              <!-- LOGIN FORM -->
+            <form  #authForm="ngForm" (ngSubmit)="onLogin(authForm)">
+                <div class="input-container">
+                    <input type="email"  class="form-control"   id="email"  name="email"   placeholder="Email Address"  required  email  ngModel>
+                </div>
+                <div class="input-container">
+                    <input type="password" class="form-control" id="password" placeholder="Password"  name="password"  ngModel  required minlength="6">
+                </div>
+                <div class="login_btn_container">
+                    <button class="btn-login" [disabled]="!authForm.valid">Log In</button>
+                </div>
+                <a class="forgot_password" [routerLink]="['reset-password']">Forgotten Password ?</a>
+            </form>
+          </div>
+          <div class="signup_btn_container">
+              <button class="btn-signup" (click)="onSignUpClick()">Don’t have an account ? <span style="font-weight: 700;"> Sign-Up</span></button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-------------------------------Sign - UP Model-------------------------------------->
+ <div class="modal"  tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+    <div class="modal-content" style="    border-radius: 10px;">
+      <div class="modal-header">
+        <h4 class="modal-title" style="width: 100%; text-align: center;"> Join us today</h4>
+        <button type="button" class="btn btn-light" (click)="closePopup()" style="padding: 0px 6px;margin: 0;    border-radius: 120px;height: 20px;">&times; </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+        <div class="alert alert-success" *ngIf="successfullMessage">
+          {{ successfullMessage }}
+        </div>
+ 
+        <!--Sign UP Form-->
+        <form #signUpForm="ngForm" (ngSubmit)="onSignUp(signUpForm)" >
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required email ngModel>
+          </div>
+          <div class="form-group">
+            <input  type="password" class="form-control" id="password"  placeholder="Password" name="password" ngModel required minlength="6">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" ngModel required minlength="6">
+          </div>
+          <div class="row">
+            <div class="col">
+              <input 
+                type="text"  class="form-control"  id="firstName" placeholder="First Name" name="firstName" ngModel required >
+            </div>
+            <div class="col">
+                <input  type="text"  class="form-control"   id="lastName"   placeholder="Last Name" name="lastName"  ngModel >
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="question_mark_with_label" for="dateOfBirth" >Date of birth <span title="Providing your date of birth help make sure your tweetapp experience for your age"><svg  xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(58, 58, 58)" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+            </svg></span></label>
+            <input 
+              type="date"  class="form-control"  required  name="dateOfBirth"  id="dateOfBirth" ngModel>
+          </div>
+          <div class="form-group">
+            <label id="question_mark_with_label" style="width: 100%;" for="gender">Gender <span title="You can set who sees your gender later rather select 'Others' if you don't want to say"><svg  xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(58, 58, 58)" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+            </svg></span>&emsp;</label>
+            <div class="row" style="margin-top: 0px;">
+              <div class="col">
+                <label style="    padding: 2px 31px;"class="custom-control-label" for="gender">Male&emsp;</label>
+                <input type="radio" id="genderMale" name="gender" value="Male" class="custom-control-input"ngModel>
+  
+              </div>
+              <div class="col">
+                <label style="    padding: 2px 21px;" class="custom-control-label" for="gender">Female&emsp;</label>
+                <input type="radio" id="genderFemale" name="gender" value="Female" class="custom-control-input" ngModel>
+  
+              </div>
+              <div class="col">
+                <label style="    padding: 2px 32px;" class="custom-control-label" for="gender">Others</label>
+                <input type="radio" id="genderOther" name="gender" value="Other" class="custom-control-input" ngModel>
+  
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="row">
+            <div class="col">
+                <select class="form-select"  required  name="question"  ngModel #question="ngModel"  >
+                    <option value="" disabled> - Select Security Question - </option>
+                    <option *ngFor="let option of options" [value]="option.key">{{ option.value }}</option>
+                </select>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                  <input  type="text"  class="form-control"  placeholder="Security Selected Question's Answer"  required name="answer"  ngModel #answer="ngModel">
+              </div>
+           </div>
+
+      
+          <div class="modal-footer" style="padding:0;">
+
+            <div class="login-button" style="width: 100%;text-align: center;margin:0px;">
+              <button type="submit" class="signUp_btn" style="width: 60%;">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,72 @@
+<!-- <section class="align-section" >
+    <div class="container py-5 h-100">
+      <div class="row d-flex h-100">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="    border: none;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white" style="background: #f0f2f5; border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                  alt="Avatar"
+                  class="img-fluid my-5"
+                  style="width: 80px;"
+                />
+                <!- <h5 style="font-weight: bold; color: black;">{{ userDetail?.firstName }} {{ userDetail?.lastName }}</h5> --
+              </div>
+              <div class="col-md-8" >
+                <div class="card-body p-4" style="background: #fff;">
+                  <!-- <h6>Information</h6> 
+                  <h5 style="font-weight: bold; color: black;">{{ userDetail?.firstName }} {{ userDetail?.lastName }}</h5>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted">{{ userDetail?.emailId }}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Date Of Birth</h6>
+                      <p class="text-muted">{{ userDetail?.dateOfBirth | date: 'shortDate'}}</p>
+                    </div>
+                  </div>
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Gender</h6>
+                      <p class="text-muted">{{ userDetail?.gender }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="align-section" style="width: 100%;text-align: center;" >
+    <div class="image" style="
+    text-align: center;">
+      <img style="margin: 55px;
+      margin-top: 100px;
+      height: 120px;
+      border-radius: 70px;
+      border: 7px solid lightblue;" src="https://static.vecteezy.com/system/resources/thumbnails/000/658/706/small/679_R0lVIEpFTiAzMDktMTE.jpg">
+    </div>
+    <div class="container" style="
+    text-align: center;">
+      <h5 style="font-size:40px; font-family:monospace;">{{ userDetail?.firstName }} {{ userDetail?.lastName }}</h5>
+    </div>
+    <div class="mail" style="
+    text-align: center; ">
+      <div style="display: inline-block;vertical-align: middle;"><span class="material-icons">
+        email
+        </span>&nbsp;</div>
+      <p style="color: rgba(14, 78, 138, 0.664); font-family: cursive;font-size:19px; display: inline-block;">{{ userDetail?.emailId }}</p>
+    </div>
+    <div class="row" style="
+    text-align: center;margin: 0px 395px;
+    width: 45%;">
+      <div class="col">Gender : {{ userDetail?.gender }}</div>
+      <div class="col">Date of birth : {{ userDetail?.dateOfBirth | date: 'shortDate'}}</div>
+    </div>
+  </section>
